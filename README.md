@@ -1,4 +1,4 @@
-# Code Analysis Strands Agent
+# Code Analysis Strands Agents
 
 A powerful code analysis agent built with the Strands Agents SDK, deployed as an AWS Lambda function. The agent uses AI to provide comprehensive code analysis including quality assessment, security review, performance optimization, and best practice recommendations.
 
