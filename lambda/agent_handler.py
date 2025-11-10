@@ -85,9 +85,10 @@ def handle_prompt_analysis(event: Dict[str, Any], context, start_time: float) ->
         # Create Strands Agent with explicit Bedrock model
         from strands.models import BedrockModel
         
-        # Use Amazon Nova Lite which doesn't require marketplace subscription
+        # Use configurable Bedrock model
+        model_id = os.environ.get('BEDROCK_MODEL_ID', 'us.amazon.nova-lite-v1:0')
         bedrock_model = BedrockModel(
-            model_id="us.amazon.nova-lite-v1:0",
+            model_id=model_id,
             temperature=0.3,
             max_tokens=4000,
         )
@@ -181,11 +182,14 @@ def handle_s3_event(event: Dict[str, Any], context, start_time: float) -> Dict[s
         # Create Strands Agent with explicit Bedrock model
         from strands.models import BedrockModel
         
+        model_id = os.environ.get('BEDROCK_MODEL_ID', 'us.amazon.nova-lite-v1:0')
         bedrock_model = BedrockModel(
-            model_id="us.amazon.nova-lite-v1:0",
+            model_id=model_id,
             temperature=0.3,
             max_tokens=4000,
         )
+
+        logger.info(f"Using Bedrock model: {model_id}")
 
         code_analysis_agent = Agent(
             model=bedrock_model,

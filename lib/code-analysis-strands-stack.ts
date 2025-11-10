@@ -44,6 +44,7 @@ export class CodeAnalysisStrandsStack extends cdk.Stack {
       architecture: lambda.Architecture.ARM_64, // ARM64 for better price/performance
       environment: {
         ENVIRONMENT: environment,
+        BEDROCK_MODEL_ID: 'us.amazon.nova-lite-v1:0',
       },
       description: `Code Analysis Strands Agent Lambda Function (${environment})`,
     });
