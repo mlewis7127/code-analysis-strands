@@ -1,0 +1,10 @@
+# Strands Agents SDK and tools
+strands-agents
+strands-agents-tools
+
+# AWS SDK for Python
+boto3>=1.34.0
+botocore>=1.34.0
+
+# Additional utilities
+requests>=2.31.0
