@@ -6,7 +6,7 @@ A powerful code analysis agent built with the Strands Agents SDK, deployed as an
 
 - **AWS Lambda**: Python 3.12 function with Strands Agents SDK
 - **Lambda Layer**: Contains all dependencies including Strands Agents SDK and tools
-- **Amazon Bedrock**: AI model provider for code analysis (Claude 3.5 Sonnet v2)
+- **Amazon Bedrock**: AI model provider for code analysis (Amazon Nova Lite)
 - **S3 Buckets**: Input bucket for code files, output bucket for analysis results
 - **EventBridge**: Triggers Lambda function when files are uploaded to S3
 - **CloudWatch**: Logging and monitoring
@@ -64,7 +64,7 @@ A powerful code analysis agent built with the Strands Agents SDK, deployed as an
 - **Node.js** 18+ for CDK
 - **Python** 3.12+ for Lambda function
 - **CDK CLI**: `npm install -g aws-cdk`
-- **Amazon Bedrock** model access (Claude Sonnet recommended)
+- **Amazon Bedrock** model access (Amazon Nova Lite recommended)
 
 ## Quick Start
 
@@ -112,10 +112,10 @@ npx cdk deploy --require-approval never
 1. Go to the [Amazon Bedrock Console](https://console.aws.amazon.com/bedrock/)
 2. Navigate to "Model access" in the left sidebar
 3. Click "Enable specific models"
-4. Enable access to **Claude 3.5 Sonnet v2** (`anthropic.claude-3-5-sonnet-20241022-v2:0`)
+4. Enable access to **Amazon Nova Lite** (`us.amazon.nova-lite-v1:0`)
 5. Wait for the access to be granted (usually takes a few minutes)
 
-**Note**: The agent is configured to use Claude 3.5 Sonnet v2 which doesn't require marketplace subscriptions, making it easier to get started.
+**Note**: The agent is configured to use Amazon Nova Lite which doesn't require marketplace subscriptions, making it easier to get started.
 
 ## Usage
 
