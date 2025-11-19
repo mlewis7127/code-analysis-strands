@@ -1,4 +1,5 @@
 from strands import Agent
+from strands.models import BedrockModel
 from strands_tools import http_request
 from typing import Dict, Any
 import json
@@ -82,11 +83,9 @@ def handle_prompt_analysis(event: Dict[str, Any], context, start_time: float) ->
     logger.info(f"Processing prompt analysis for request {request_id}")
     
     try:
-        # Create Strands Agent with explicit Bedrock model
-        from strands.models import BedrockModel
-        
         # Use configurable Bedrock model
         model_id = os.environ.get('BEDROCK_MODEL_ID', 'us.amazon.nova-lite-v1:0')
+        
         bedrock_model = BedrockModel(
             model_id=model_id,
             temperature=0.3,
@@ -180,8 +179,6 @@ def handle_s3_event(event: Dict[str, Any], context, start_time: float) -> Dict[s
         """
         
         # Create Strands Agent with explicit Bedrock model
-        from strands.models import BedrockModel
-        
         model_id = os.environ.get('BEDROCK_MODEL_ID', 'us.amazon.nova-lite-v1:0')
         bedrock_model = BedrockModel(
             model_id=model_id,
