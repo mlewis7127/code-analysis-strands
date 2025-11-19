@@ -84,7 +84,10 @@ def handle_prompt_analysis(event: Dict[str, Any], context, start_time: float) ->
     
     try:
         # Use configurable Bedrock model
-        model_id = os.environ.get('BEDROCK_MODEL_ID', 'us.amazon.nova-lite-v1:0')
+        model_id = os.environ.get(
+            'BEDROCK_MODEL_ID', 
+            'us.amazon.nova-lite-v1:0'
+        )
         
         bedrock_model = BedrockModel(
             model_id=model_id,
@@ -98,10 +101,9 @@ def handle_prompt_analysis(event: Dict[str, Any], context, start_time: float) ->
             tools=[http_request],
         )
         
-        # Process the prompt through the agent
         response = code_analysis_agent(prompt)
-        analysis_result = str(response)
-        
+
+        analysis_result = str(response)        
         processing_time = time.time() - start_time
         
         return {
